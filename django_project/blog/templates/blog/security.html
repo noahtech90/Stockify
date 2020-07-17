@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+
+<legend>Search By Ticker</legend>
+
+    <div class="output-graph">
+    {%if sec_graph == "" %}
+        <p class="small text-muted ">For example, the ticker for Boeing is "BA".</p>
+        <div class="security-spacer">
+            <p></p>
+
+        </div>
+    {% else %}
+        <h1>{{ search_ticker }}</h1>
+            {% autoescape off %}
+            {{ sec_graph }}
+            {% endautoescape %}
+    {% endif %}
+        </div>
+        <p class="lead mb-6">Enter a ticker below to see all pricing history</p>
+          <div class="row">
+          <div class="col-sm-4">
+              <form action="." method="POST" class="mb-4">{% csrf_token %}
+                <div>
+                {{ form.as_p }}
+                  </div>
+
+                <div class="btn btn-4">
+            <input type="submit" name="submit" value="Submit">
+                  </div>
+              </form>
+        </div>
+        </div>
+
+
+
+{% endblock content %}
