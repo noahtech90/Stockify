@@ -17,4 +17,4 @@ class Post(models.Model):
         return reverse('post-detail', kwargs={'pk': self.pk})
 
 class Security(models.Model):
-    ticker = models.CharField(max_length=100, default="")
+    ticker = models.CharField(max_length=100, default='Enter "AAPL"  ')

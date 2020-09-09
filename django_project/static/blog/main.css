@@ -1,5 +1,5 @@
 body {
-  background: #fafafa;
+  background: red;
   color: #333333;
   margin-top: 5rem;
 }
@@ -88,12 +88,19 @@ a.article-title:hover {
     margin-top: 1rem;
 }
 
+.contact-content {
+    display: flex;
+    flex-direction: row;
+    padding: 3rem;
+
+}
+
+.contact-img {
+    float: left;
+    box-shadow: 4px 4px lightgrey;
+}
+
 .contact-list{
     list-style-type: none
     }
 
-.security-spacer {
-       height: 350px;
-       width: 80%;
-       margin: auto;
-    }

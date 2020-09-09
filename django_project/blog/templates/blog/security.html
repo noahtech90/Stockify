@@ -1,37 +1,75 @@
-{% extends "blog/base.html" %}
+{% extends "blog/base_security.html" %}
 {% block content %}
 
-
-<legend>Search By Ticker</legend>
-
     <div class="output-graph">
-    {%if sec_graph == "" %}
-        <p class="small text-muted ">For example, the ticker for Boeing is "BA".</p>
-        <div class="security-spacer">
-            <p></p>
-
+    {%if sec_graph == "" or sec_graph == None %}
+        <div class="row">
+        <legend><h1 class="pb-2 text-center">Search By Ticker</h1></legend>
         </div>
     {% else %}
-        <h1>{{ search_ticker }}</h1>
-            {% autoescape off %}
-            {{ sec_graph }}
-            {% endautoescape %}
-    {% endif %}
+        <h3 class="pb-2 pd-4 text-center">{{ sec_title }}</h3>
+        <ul class="list-group pd-4">
+            <a href="#info" data-toggle="collapse"><li class="list-group-item">The Company</a>
+                <div id="info" class="collapse">
+                    <p class="pt-2">
+                        {{ sec_descript }}
+                    </p>
+                </div>
+            </li>
+            <a href="#sec" data-toggle="collapse"><li class="list-group-item">Info</a>
+                <div id="sec" class="collapse">
+
+                        <ul>
+                            <li>
+                        <strong>Industry: </strong> {{ sec_sector }}
+                            </li>
+                            <li>
+                        <strong>Country: </strong>{{ sec_country }}
+                            </li>
+                            <li>
+                        <strong>Employees:</strong> {{ sec_employees }}
+                            </li>
+                            <li>
+                        <strong>Website: </strong> {{ sec_website }}
+                            </li>
+                            <li>
+                        <strong>Phone: </strong> {{ sec_phone }}
+                            </li>
+                        </ul>
+                </div>
+            </li>
+        </ul>
+        {% autoescape off %}
+        <div class="row pt-2">
+            <div class="col-lg-6 col-xl-6">
+        <h5 class="pb-4 pt-2 text-center">Stock Price History</h5>
+        {{ sec_graph }}
+            </div>
+            <div class="col-lg-6 col-xl-6">
+        <h5 class="pb-4 pt-2 text-center">Dividend Yield</h5>
+        {{ sec_divs }}
+            </div>
         </div>
-        <p class="lead mb-6">Enter a ticker below to see all pricing history</p>
-          <div class="row">
-          <div class="col-sm-4">
-              <form action="." method="POST" class="mb-4">{% csrf_token %}
-                <div>
-                {{ form.as_p }}
+        {% endautoescape %}
+
+
+    {% endif %}
+
+        <div class="col-lg-12 w-100 text-center justify-content-center sticky-bottom">
+          <div class="content-section mt-4">
+            <form action="." method="POST" class="text-center">{% csrf_token %}
+                  <div class="form-group">
+                      {{ form.as_p }}
                   </div>
 
-                <div class="btn btn-4">
-            <input type="submit" name="submit" value="Submit">
-                  </div>
-              </form>
+                 <div class="form-group">
+                    <input type="submit" class="form-control btn-outline-secondary" id="formGroupExampleInput">
+                </div>
+                </form>
+            </div>
+            </div>
         </div>
-        </div>
+
 
 
 

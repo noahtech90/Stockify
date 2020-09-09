@@ -13,7 +13,8 @@ ul {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #0077be;
+  opacity: .92;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -102,10 +103,4 @@ a.article-title:hover {
 
 .contact-list{
     list-style-type: none
-    }
-
-.security-spacer {
-       height: 350px;
-       width: 80%;
-       margin: auto;
     }
