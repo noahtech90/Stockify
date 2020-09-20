@@ -106,6 +106,11 @@ def security(request):
 
     return render(request, "blog/security.html", context)
 
+def economic(request):
+    context = {
+
+    }
+    return render(request, "blog/economy.html", context)
 
 # LoginRequiredMixin
 class PostListView(ListView):
