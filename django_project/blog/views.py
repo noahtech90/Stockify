@@ -112,6 +112,11 @@ def economic(request):
     }
     return render(request, "blog/economy.html", context)
 
+def corpact(request):
+    context = {
+
+    }
+    return render(request, "blog/corpact.html", context)
 # LoginRequiredMixin
 class PostListView(ListView):
     model = Post
