@@ -104,3 +104,22 @@ a.article-title:hover {
 .contact-list{
     list-style-type: none
     }
+
+.main-content {
+    padding: 1rem;
+}
+
+.recent-news {
+    padding: 6rem;
+    margin: 10px;
+}
+
+
+.center-image {
+    background-size: 75% 75%;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+
+}
+

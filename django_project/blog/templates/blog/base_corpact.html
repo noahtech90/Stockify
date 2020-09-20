@@ -48,9 +48,8 @@
         </div>
       </nav>
     </header>
-    <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8">
+
+
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-{{ message.tags }}">
@@ -60,40 +59,6 @@
             {% endfor%}
             {% endif%}
           {% block content %}{% endblock %}
-        </div>
-
-          {%if sec_graph != "" %}
-          <div class="col-md-4 pt-4 mt-4">
-
-                <div class="content-section">
-                    <h5>Market Value</h5>
-                    <p> {{ sec_market_cap }} </p>
-                    <h5>PEG Ratio</h5>
-                    <p> {{ sec_price_to_earnings }}</p>
-                    <h5>Profit Margin</h5>
-                    <p> {{ sec_profit_margins }}</p>
-                    <h5>Isin</h5>
-                    <p>{{ sec_isin }} </p>
-                </div>
-
-              <div class="content-section">
-                    <h2 class="text-center"><a href="#">Financials</a></h2>
-                  <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
-                </div>
-
-
-
-              <div class="content-section">
-                    <h2 class="text-center"><a class="" class='corp-act-link' href="{% url 'blog-corpact' %}">Corporate Actions</a></h2>
-                  <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
-
-
-                  <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
-                </div>
-        </div>
-          {% endif %}
-
-        </main>
 
 
  <!-- Optional JavaScript -->

@@ -1,9 +1,103 @@
-{% extends "blog/base.html" %}
+{% extends "blog/base_corpact.html" %}
 {% block content %}
-    <h1 class="mb-2">Stockify Application</h1>
-    <div class="pd-2 about-content">
-    <p>This application was made using the Django Framework.  Here you are able to create a profile, login, contribute your thoughts on the stock market, delete old content, and more!</p>
-    <p class="mb-4">I hope you take a moment to explore all the functionality, and thank you for taking the time to look around.</p>
-    <p>This is a work in progress and is in the early stages of production. New features will be periodically added.</p>
-    </div>
+      <h1 class="d-flex justify-content-center pt-2 pb-4">
+                        Corporate Actions
+                    </h1>
+
+                <div class="container">
+                    <div class="main-content">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 mt-4">
+                                <div class="list-group" id="list-div">
+                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action active">
+                                      Recent News
+                                    </a>
+                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action">Dividends</a>
+                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action">Stock Splits</a>
+                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action">Mergers & Acquisitions</a>
+                                  </div>
+                            </div>
+
+                            <div class="col-lg-8 col-md-12">
+                                <section>
+                                    <div class="card pt-4 mt-4">
+                                        <article>
+                                            <h2 class="pl-4 d-flex justify-content-center">Share Holder Meeting</h2>
+                                            <p class="pl-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit sunt ea suscipit dolor,
+                                                eveniet velit accusamus dicta neque eius nihil nobis eos ab saepe laboriosam numquam
+                                                quia. Rerum, dignissimos sequi.
+                                            </p>
+                                            <p class="pl-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit sunt ea suscipit dolor,
+                                                eveniet velit accusamus dicta neque eius nihil nobis eos ab saepe laboriosam numquam
+                                                quia. Rerum, dignissimos sequi.
+                                            </p>
+                                            <div class="image-styling">
+                                                <img src="../../../media/economy.jpg" alt=""  class="img-fluid justify-content-center center-image">
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <div class="card pt-4 mt-4">
+                                        <article>
+                                            <h2 class="pl-4 d-flex justify-content-center">Speculation over new CEO</h2>
+                                            <p class="pl-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit sunt ea suscipit dolor,
+                                                eveniet velit accusamus dicta neque eius nihil nobis eos ab saepe laboriosam numquam
+                                                quia. Rerum, dignissimos sequi.
+                                            </p>
+                                            <p class="pl-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit sunt ea suscipit dolor,
+                                                eveniet velit accusamus dicta neque eius nihil nobis eos ab saepe laboriosam numquam
+                                                quia. Rerum, dignissimos sequi.
+                                            </p>
+                                            <div class="image-styling">
+                                                <img src="../../../media/economy.jpg" alt=""  class="img-fluid justify-content-center center-image">
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <div class=" card pt-4 mt-4">
+                                        <article>
+                                            <h2 class="pl-4 d-flex justify-content-center">Company XYZ announces a new product</h2>
+                                            <p class="pl-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit sunt ea suscipit dolor,
+                                                eveniet velit accusamus dicta neque eius nihil nobis eos ab saepe laboriosam numquam
+                                                quia. Rerum, dignissimos sequi.
+                                            </p>
+                                            <p class="pl-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit sunt ea suscipit dolor,
+                                                eveniet velit accusamus dicta neque eius nihil nobis eos ab saepe laboriosam numquam
+                                                quia. Rerum, dignissimos sequi.
+                                            </p>
+                                            <div class="image-styling">
+                                                <img src="../../../media/economy.jpg" alt=""  class="img-fluid justify-content-center center-image">
+                                            </div>
+                                        </article>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <form action="#">
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <script>
+                 function adjustActive(e) {
+                    var activeDisplay = document.getElementById('list-div')
+                    var aTags = activeDisplay.getElementsByClassName("list-group-item-action");
+
+                    for (var i  = 0; i < aTags.length; i++) {
+                        aTags[i].addEventListener('click', function() {
+                    var current = document.getElementsByClassName('active')
+
+                    if (current.length > 0) {
+                        current[0].className = current[0].className.replace(" active", "");
+                      }
+
+                  // Add the active class to the current/clicked button
+                  this.className += " active";
+                    })
+                }
+            }
+               </script>
 {% endblock content%}
