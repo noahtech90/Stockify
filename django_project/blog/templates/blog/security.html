@@ -3,9 +3,9 @@
 
     <div class="output-graph">
     {%if sec_graph == "" or sec_graph == None %}
-        <div class="row">
-        <legend><h1 class="pb-2 text-center">Search By Ticker</h1></legend>
-        </div>
+
+        <h1 class="pb-2 text-center">Search By Ticker</h1>
+
     {% else %}
         <h3 class="pb-2 pd-4 text-center">{{ sec_title }}</h3>
         <ul class="list-group pd-4">
@@ -53,9 +53,39 @@
         {% endautoescape %}
 
 
+      <div class="col-md-4 pt-4 mt-4">
+
+            <div class="content-section">
+                <h5>Market Value</h5>
+                <p> {{ sec_market_cap }} </p>
+                <h5>PEG Ratio</h5>
+                <p> {{ sec_price_to_earnings }}</p>
+                <h5>Profit Margin</h5>
+                <p> {{ sec_profit_margins }}</p>
+                <h5>Isin</h5>
+                <p>{{ sec_isin }} </p>
+            </div>
+
+          <div class="content-section">
+                <h2 class="text-center"><a href="#">Financials</a></h2>
+              <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
+            </div>
+
+
+
+          <div class="content-section">
+                <h2 class="text-center"><a class="" class='corp-act-link' href="{% url 'blog-corpact' %}">Corporate Actions</a></h2>
+              <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
+
+
+              <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
+            </div>
+    </div>
+
+
     {% endif %}
 
-        <div class="col-lg-12 w-100 text-center justify-content-center sticky-bottom">
+        <div class="col-lg-12 col-sm-12 w-100 text-center justify-content-center sticky-bottom">
           <div class="content-section mt-4">
             <form action="." method="POST" class="text-center">{% csrf_token %}
                   <div class="form-group">
@@ -65,10 +95,11 @@
                  <div class="form-group">
                     <input type="submit" class="form-control btn-outline-secondary" id="formGroupExampleInput">
                 </div>
-                </form>
-            </div>
-            </div>
+            </form>
+          </div>
         </div>
+
+    </div>
 
 
 
