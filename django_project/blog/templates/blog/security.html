@@ -16,6 +16,18 @@
                     </p>
                 </div>
             </li>
+            <a href="#fact" data-toggle="collapse"><li class="list-group-item">Finances</a>
+            <div id="fact" class="collapse pt-4">
+                    <h5>Market Value</h5>
+                    <p> {{ sec_market_cap }} </p>
+                    <h5>PEG Ratio</h5>
+                    <p> {{ sec_price_to_earnings }}</p>
+                    <h5>Profit Margin</h5>
+                    <p> {{ sec_profit_margins }}</p>
+                    <h5>Isin</h5>
+                    <p>{{ sec_isin }} </p>
+              </div>
+              </li>
             <a href="#sec" data-toggle="collapse"><li class="list-group-item">Info</a>
                 <div id="sec" class="collapse">
 
@@ -58,25 +70,15 @@
                 <h2 class="text-center"><a href="#">Financials</a></h2>
               <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
             </div>
-
-
-            <div class="content-section">
-                <h5>Market Value</h5>
-                <p> {{ sec_market_cap }} </p>
-                <h5>PEG Ratio</h5>
-                <p> {{ sec_price_to_earnings }}</p>
-                <h5>Profit Margin</h5>
-                <p> {{ sec_profit_margins }}</p>
-                <h5>Isin</h5>
-                <p>{{ sec_isin }} </p>
+          <div class="content-section">
+                <h2 class="text-center"><a class="" class='corp-act-link' href="{% url 'blog-corpact' %}">Market Segment</a></h2>
+              <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
             </div>
           </div>
-          <div class="col-md-6 pt-4 mt-4">
-          <div class="content-section">
-                <h2 class="text-center"><a class="" class='corp-act-link' href="{% url 'blog-corpact' %}">Corporate Actions</a></h2>
+        <div class="col-md-6 pt-4 mt-4">
+            <div class="content-section">
+            <h2 class="text-center"><a class="" class='corp-act-link' href="{% url 'blog-corpact' %}">Corporate Actions</a></h2>
               <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
-
-
               <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
             </div>
           </div>
@@ -99,8 +101,5 @@
         </div>
 
     </div>
-
-
-
 
 {% endblock content %}
