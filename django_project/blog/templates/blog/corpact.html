@@ -20,6 +20,7 @@
 
                             <div class="col-lg-8 col-md-12">
                                 <section>
+                                    <div class="display-section ">
                                     <div class="card pt-4 mt-4">
                                         <article>
                                             <h2 class="pl-4 d-flex justify-content-center">Share Holder Meeting</h2>
@@ -69,7 +70,20 @@
                                         </article>
                                     </div>
                                 </section>
+                                </div>
                             </div>
+                        </div>
+                        <!-- Dividends Display -->
+                        <div class="col display-section  d-none">
+                                <h1>Dividends</h1>
+                        </div>
+                        <!-- Stock Split Display -->
+                            <div class="col  display-section  d-none">
+                                <h1>Stock Splits</h1>
+                            </div>
+                        <!-- Mergers & Acquisitions Display Display -->
+                            <div class="col  display-section d-none">
+                                <h1>M&A</h1>
                         </div>
                         <div class="row">
                             <div class="col-4">
@@ -85,6 +99,7 @@
                  function adjustActive(e) {
                     var activeDisplay = document.getElementById('list-div')
                     var aTags = activeDisplay.getElementsByClassName("list-group-item-action");
+                    var activeCols = document.getElementsByClassName("display-section")
 
                     for (var i  = 0; i < aTags.length; i++) {
                         aTags[i].addEventListener('click', function() {
@@ -92,12 +107,15 @@
 
                     if (current.length >= 1) {
                         current[0].className = current[0].className.replace(" active", "");
+                        activeCols[0].className += " d-none"
                       }
 
                   // Add the active class to the current/clicked button
                   this.className += " active";
+                  activeCols[0].className.replace(" d-none", "")
                     })
                 }
+
             }
                </script>
 {% endblock content%}
