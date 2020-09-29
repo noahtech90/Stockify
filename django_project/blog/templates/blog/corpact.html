@@ -97,13 +97,13 @@
 
                <script>
                  function adjustActive(e) {
-                    var activeDisplay = document.getElementById('list-div')
-                    var aTags = activeDisplay.getElementsByClassName("list-group-item-action");
-                    var activeCols = document.getElementsByClassName("display-section")
+                    let activeDisplay = document.getElementById('list-div')
+                    let aTags = activeDisplay.getElementsByClassName("list-group-item-action");
+                    let activeCols = document.getElementsByClassName("display-section")
 
                     for (var i  = 0; i < aTags.length; i++) {
                         aTags[i].addEventListener('click', function() {
-                    var current = document.getElementsByClassName('active')
+                    let current = document.getElementsByClassName('active')
 
                     if (current.length >= 1) {
                         current[0].className = current[0].className.replace(" active", "");
@@ -112,10 +112,10 @@
 
                   // Add the active class to the current/clicked button
                   this.className += " active";
-
-                    })
-                }
-
+                  activeCols[i].className.rename(" d-none", "")
+                    }
+                )
             }
+        }
                </script>
 {% endblock content%}
