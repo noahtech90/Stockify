@@ -9,18 +9,18 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-12 mt-4">
                                 <div class="list-group" id="list-div">
-                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action active">
+                                    <a href="#" onclick="adjustActive(); selectItem()" class="list-group-item list-group-item-action active" id='current-news'>
                                       Recent News
                                     </a>
-                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action">Dividends</a>
-                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action">Stock Splits</a>
-                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action">Mergers & Acquisitions</a>
+                                    <a href="#" onclick="adjustActive(); selectItem()" class="list-group-item list-group-item-action" id='dividends'>Dividends</a>
+                                    <a href="#" onclick="adjustActive(); selectItem()" class="list-group-item list-group-item-action" id='stocksplits'>Stock Splits</a>
+                                    <a href="#" onclick="adjustActive(); selectItem()" class="list-group-item list-group-item-action" id='m&a'>Mergers & Acquisitions</a>
                                   </div>
                             </div>
 
                             <div class="col-lg-8 col-md-12">
                                 <section>
-                                    <div class="display-section ">
+                                    <div class="display-section" id='current-news-content'>
                                     <div class="card pt-4 mt-4">
                                         <article>
                                             <h2 class="pl-4 d-flex justify-content-center">Share Holder Meeting</h2>
@@ -74,15 +74,15 @@
                             </div>
                         </div>
                         <!-- Dividends Display -->
-                        <div class="col display-section  d-none">
+                        <div class="col display-section  d-none" id='dividends-content'>
                                 <h1>Dividends</h1>
                         </div>
                         <!-- Stock Split Display -->
-                            <div class="col  display-section  d-none">
+                            <div class="col  display-section  d-none" id='stocksplits-content'>
                                 <h1>Stock Splits</h1>
                             </div>
                         <!-- Mergers & Acquisitions Display Display -->
-                            <div class="col  display-section d-none">
+                            <div class="col  display-section d-none" id='m&a-content'>
                                 <h1>M&A</h1>
                         </div>
                         <div class="row">
@@ -99,23 +99,42 @@
                  function adjustActive(e) {
                     let activeDisplay = document.getElementById('list-div')
                     let aTags = activeDisplay.getElementsByClassName("list-group-item-action");
-                    let activeCols = document.getElementsByClassName("display-section")
 
                     for (var i  = 0; i < aTags.length; i++) {
                         aTags[i].addEventListener('click', function() {
-                    let current = document.getElementsByClassName('active')
+                    let current = document.getElementsByClassName('active');
 
                     if (current.length >= 1) {
                         current[0].className = current[0].className.replace(" active", "");
-                        activeCols[0].className += " d-none"
                       }
 
                   // Add the active class to the current/clicked button
                   this.className += " active";
-                  activeCols[i].className.rename(" d-none", "")
+                                }
+                            )
+                        }
                     }
-                )
-            }
-        }
+                    console.log(activeDisplay)
+
+
+                    function selectItem(e) {
+                        removeBorder()
+                        removeShow()
+                        this.classList.add('tab-border')
+                        //grab content item from DOM
+                        const tabContentItem = document.querySelector(`#${this.id}-content`)
+                        tabContentItem.classList.add('show')
+
+                        }
+
+                        function removeBorder() {
+                        tabItems.forEach(item => item.classList.remove('tab-border'))
+                        }
+
+                        function removeShow() {
+                        tabContentItems.forEach(item => item.classList.remove('show'))
+                        }
+                        tabItems.forEach(item => item.addEventListener('click', selectItem))
+
                </script>
 {% endblock content%}
