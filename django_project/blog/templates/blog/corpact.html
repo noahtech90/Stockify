@@ -9,12 +9,12 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-12 mt-4">
                                 <div class="list-group" id="list-div">
-                                    <a href="#" onclick="adjustActive(); selectItem()" class="list-group-item list-group-item-action active" id='current-news'>
+                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action active" id='current-news'>
                                       Recent News
                                     </a>
-                                    <a href="#" onclick="adjustActive(); selectItem()" class="list-group-item list-group-item-action" id='dividends'>Dividends</a>
-                                    <a href="#" onclick="adjustActive(); selectItem()" class="list-group-item list-group-item-action" id='stocksplits'>Stock Splits</a>
-                                    <a href="#" onclick="adjustActive(); selectItem()" class="list-group-item list-group-item-action" id='m&a'>Mergers & Acquisitions</a>
+                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action" id='dividends'>Dividends</a>
+                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action" id='stocksplits'>Stock Splits</a>
+                                    <a href="#" onclick="adjustActive()" class="list-group-item list-group-item-action" id='m&a'>Mergers & Acquisitions</a>
                                   </div>
                             </div>
 
@@ -69,8 +69,8 @@
                                             </div>
                                         </article>
                                     </div>
-                                </section>
                                 </div>
+                             </section>
                             </div>
                         </div>
                         <!-- Dividends Display -->
@@ -103,38 +103,21 @@
                     for (var i  = 0; i < aTags.length; i++) {
                         aTags[i].addEventListener('click', function() {
                     let current = document.getElementsByClassName('active');
+                    let allDisplays = document.getElementsByClassName('display-section')
+                    let display = document.getElementById(current[0].id + '-content')
 
                     if (current.length >= 1) {
                         current[0].className = current[0].className.replace(" active", "");
+                        allDisplays[0].className = "d-none"
                       }
 
                   // Add the active class to the current/clicked button
                   this.className += " active";
+                  display.className = display.className.replace(" d-none", "")
                                 }
                             )
                         }
                     }
-                    console.log(activeDisplay)
-
-
-                    function selectItem(e) {
-                        removeBorder()
-                        removeShow()
-                        this.classList.add('tab-border')
-                        //grab content item from DOM
-                        const tabContentItem = document.querySelector(`#${this.id}-content`)
-                        tabContentItem.classList.add('show')
-
-                        }
-
-                        function removeBorder() {
-                        tabItems.forEach(item => item.classList.remove('tab-border'))
-                        }
-
-                        function removeShow() {
-                        tabContentItems.forEach(item => item.classList.remove('show'))
-                        }
-                        tabItems.forEach(item => item.addEventListener('click', selectItem))
 
                </script>
 {% endblock content%}
