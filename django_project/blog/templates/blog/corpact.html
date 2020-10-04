@@ -20,7 +20,7 @@
 
                             <div class="col-lg-8 col-md-12">
                                 <section>
-                                    <div class="display-section" id='current-news-content'>
+                                    <div class="display-section active-display" id='current-news-content'>
                                     <div class="card pt-4 mt-4">
                                         <article>
                                             <h2 class="pl-4 d-flex justify-content-center">Share Holder Meeting</h2>
@@ -97,8 +97,9 @@
 
                <script>
                  function adjustActive(e) {
-                    let activeDisplay = document.getElementById('list-div')
+                    let activeDisplay = document.getElementById('list-div');
                     let aTags = activeDisplay.getElementsByClassName("list-group-item-action");
+                    let activeView = document.getElementById('active-display ')
 
                     for (var i  = 0; i < aTags.length; i++) {
                         aTags[i].addEventListener('click', function() {
@@ -108,8 +109,15 @@
 
                     if (current.length >= 1) {
                         current[0].className = current[0].className.replace(" active", "");
-                        allDisplays[0].className = "d-none"
+                        current[0].className = current[0].className.replace(" active-display", "");
+                        current[1].className = current[1].className.replace("d-none ", "");
+                        let displaySection = (this.id + "-content");
+                        displaySection.className += "d-none ";
+
                       }
+
+                      
+                      
 
                   // Add the active class to the current/clicked button
                   this.className += " active";
