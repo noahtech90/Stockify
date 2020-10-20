@@ -96,36 +96,27 @@
                 </div>
 
                <script>
-                 function adjustActive(e) {
-                    let activeDisplay = document.getElementById('list-div');
-                    let aTags = activeDisplay.getElementsByClassName("list-group-item-action");
-                    let activeView = document.getElementById('active-display ')
+    function adjustActive(e) {
+        var activeDisplay = document.getElementById('list-div')
+        var aTags = activeDisplay.getElementsByClassName("list-group-item-action");
+        var displaySections = document.getElementsByClassName("display-section");
 
-                    for (var i  = 0; i < aTags.length; i++) {
-                        aTags[i].addEventListener('click', function() {
-                    let current = document.getElementsByClassName('active');
-                    let allDisplays = document.getElementsByClassName('display-section')
-                    let display = document.getElementById(current[0].id + '-content')
+        for (var i  = 0; i < aTags.length; i++) {
+            aTags[i].addEventListener('click', function() {
+                var current = document.getElementsByClassName('active');
+                console.log(displaySections[i])
 
-                    if (current.length >= 1) {
-                        current[0].className = current[0].className.replace(" active", "");
-                        current[0].className = current[0].className.replace(" active-display", "");
-                        current[1].className = current[1].className.replace("d-none ", "");
-                        let displaySection = (this.id + "-content");
-                        displaySection.className += "d-none ";
-
-                      }
-
-                      
-                      
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active", "");
+                  }
 
                   // Add the active class to the current/clicked button
                   this.className += " active";
-                  display.className = display.className.replace(" d-none", "")
-                                }
-                            )
-                        }
-                    }
 
+            }
+
+            )
+        }
+    }
                </script>
 {% endblock content%}
