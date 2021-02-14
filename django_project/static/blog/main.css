@@ -124,6 +124,10 @@ a.article-title:hover {
 
 }
 
+.ticker-field input {
+    width: 800px;
+}
+
 #dividends,
 #stocksplits,
 #m&a {

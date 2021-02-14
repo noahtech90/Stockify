@@ -84,22 +84,24 @@
               <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda blanditiis consequuntur dolorem, ex exercitationem facilis fuga, impedit ipsa nam necessitatibus officiis quas quia quod repudiandae unde ut vel veritatis!</p>
             </div>
           </div>
+    </div>
 
 
     {% endif %}
-        <div class="col-12 w-100 fixed-bottom">
-          <div class="content-section mt-4">
-            <form action="." method="POST" class="text-center">{% csrf_token %}
-                  <div class="form-group">
-                      {{ form.as_p }}
-                  </div>
-                 <div class="form-group">
-                    <input type="submit" class="form-control btn-outline-secondary" id="formGroupExampleInput">
-                </div>
-            </form>
-          </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-8">
+              <div class="content-section mt-4">
+                <form action="." method="POST" class="text-center">{% csrf_token %}
+                      <div class="form-group">
+                          {{ form.as_p }}
+                      </div>
+                     <div class="form-group">
+                        <input type="submit" class="form-control btn-outline-secondary" id="formGroupExampleInput">
+                    </div>
+                </form>
+              </div>
+            </div>
         </div>
 
-    </div>
 
 {% endblock content %}
