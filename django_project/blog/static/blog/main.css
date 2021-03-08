@@ -118,6 +118,11 @@ a.article-title:hover {
     width: 800px;
 }
 
+.ticker-input {
+padding: 60rem !important;
+
+}
+
 .center-image {
     background-size: 75% 75%;
     width: 100%;
