@@ -128,11 +128,6 @@ a.article-title:hover {
     width: 800px;
 }
 
-.ticker-input {
-padding: 60rem !important;
-
-}
-
 #dividends, #stocksplits, #m&a {
   display: none;
 }
