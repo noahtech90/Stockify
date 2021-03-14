@@ -141,3 +141,4 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = os.environ.get('db_email')
 EMAIL_HOST_PASSWORD = os.environ.get('db_password')
+ALPHA_API = os.environ.get('API_ALPHA_KEY')

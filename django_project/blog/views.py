@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
+import os
 from django.contrib.auth.models import User
 from .models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -33,6 +34,7 @@ def contact(request):
 
 def security(request):
     sec_graph = ""
+    industry_data = ""
     search_ticker = ""
     sec_divs = ""
     sec_isin = ""
@@ -81,14 +83,13 @@ def security(request):
         sec_divs = plot([Scatter(x=x_div, y=y_div, name='divs',
                                  opacity=0.8, marker_color='blue')],
                         output_type='div')
-
         sec_graph = plot([Scatter(x=x_data, y=y_data, name='test',
                                   opacity=0.8, marker_color='green')],
                          output_type='div')
-
-        sp = SectorPerformances(key='YOUR_API_KEY', output_format='pandas')
+        print(os.environ['ALPHA_API_KEY'])
+        sp = SectorPerformances(key=os.environ['API_ALPHA_KEY'], output_format='pandas')
         data, meta_data = sp.get_sector()
-        data['Rank A: Real-Time Performance'].plot(kind='bar')
+        industry_data = data['Rank A: Real-Time Performance'].plot(kind='bar')
         plt.title('Real Time Performance (%) per Sector')
         plt.tight_layout()
         plt.grid()
@@ -111,6 +112,7 @@ def security(request):
         'sec_employees': sec_employees,
         'sec_website': sec_website,
         'sec_phone': sec_phone,
+        'industry_data': industry_data,
         'post': Post.objects.all(),
 
     }

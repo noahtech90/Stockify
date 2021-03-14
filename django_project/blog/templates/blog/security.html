@@ -85,17 +85,19 @@
         </div>
         {% endautoescape %}
 
-    <div class="row">
+
       <div class="col-md-6 pt-4 mt-4">
           <div class="content-section">
                 <h2 class="text-center"><a href="#">Financials</a></h2>
               <p class="pt-2 text-muted">View balance sheet and income statements here.  Currently in production</p>
             </div>
-          <div class="content-section">
-                <h2 class="text-center"><a class="" class='corp-act-link' href="{% url 'blog-corpact' %}">Market Segment</a></h2>
-              <p class="pt-2 text-muted">View performance of market sector here  Currently in production</p>
+        {% autoescape off %}
+
+          <div class="col-lg-6 col-xl-6">
+        <h5 class="pb-4 pt-2 text-center">Industry Fundamentals</h5>
+        {{ industry_data }}
             </div>
-          </div>
+        {% endautoescape %}
         <div class="col-md-6 pt-4 mt-4">
             <div class="content-section">
             <h2 class="text-center"><a class="" class='corp-act-link' href="{% url 'blog-corpact' %}">Corporate Actions</a></h2>
